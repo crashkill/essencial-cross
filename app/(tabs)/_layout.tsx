@@ -7,7 +7,7 @@ import { HapticTab } from '@/components/HapticTab';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { isWeb, isMobile } from '@/utils/responsive';
+import { isWeb, isMobile } from '@/src/utils/responsive';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -27,7 +27,7 @@ export default function TabLayout() {
             },
             default: {},
           }) : {}),
-          ...(isWeb ? webTabBarStyles : {}),
+          ...(isWeb ? webTabBarStyles.webOnly : {}),
         },
         tabBarLabelStyle: isWeb ? {
           fontSize: 14, // Texto maior na web
@@ -40,35 +40,35 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <Ionicons name="home" size={isWeb ? 24 : 28} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Ionicons name="home" size={isWeb ? 24 : 28} color={color} />,
         }}
       />
       <Tabs.Screen
         name="wods"
         options={{
           title: 'WODs',
-          tabBarIcon: ({ color }) => <Ionicons name="barbell" size={isWeb ? 24 : 28} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Ionicons name="barbell" size={isWeb ? 24 : 28} color={color} />,
         }}
       />
       <Tabs.Screen
         name="exercises"
         options={{
           title: 'Exercícios',
-          tabBarIcon: ({ color }) => <Ionicons name="body" size={isWeb ? 24 : 28} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Ionicons name="body" size={isWeb ? 24 : 28} color={color} />,
         }}
       />
       <Tabs.Screen
         name="timer"
         options={{
           title: 'Timer',
-          tabBarIcon: ({ color }) => <Ionicons name="timer" size={isWeb ? 24 : 28} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Ionicons name="timer" size={isWeb ? 24 : 28} color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Perfil',
-          tabBarIcon: ({ color }) => <Ionicons name="person" size={isWeb ? 24 : 28} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Ionicons name="person" size={isWeb ? 24 : 28} color={color} />,
         }}
       />
     </Tabs>
@@ -77,13 +77,14 @@ export default function TabLayout() {
 
 // Estilos específicos para a barra de abas na web
 const webTabBarStyles = StyleSheet.create({
+  webOnly: {
   height: 56,
   paddingTop: 5,
   paddingBottom: 5,
   borderTopWidth: 1,
   borderTopColor: 'rgba(0,0,0,0.1)',
-  position: 'relative',
   width: '100%',
   maxWidth: 1200,
   alignSelf: 'center',
+  }
 });

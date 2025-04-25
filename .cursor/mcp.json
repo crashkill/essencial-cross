@@ -1,0 +1,15 @@
+{
+  "servers": [
+    {
+      "name": "supabase-essencial-cross", 
+      "description": "Conexão com o banco de dados Supabase para o projeto Essencial Cross", 
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "<YOUR_SUPABASE_CONNECTION_STRING>" 
+      ],
+      "type": "postgres" 
+    }
+  ]
+} 
