@@ -36,6 +36,27 @@ Será implementada uma tela de Login.
 *   Expo
 *   Expo Router
 *   TypeScript
+*   Supabase (Autenticação e Banco de Dados)
+
+## Configuração do Ambiente
+
+1. **Variáveis de Ambiente**
+   
+   Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+   ```bash
+   EXPO_PUBLIC_SUPABASE_URL=sua_url_do_supabase
+   EXPO_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
+   ```
+
+   > **Importante**: Nunca commite o arquivo `.env` com suas chaves reais. Um arquivo `.env.example` está disponível como modelo.
+
+2. **Dependências Necessárias**
+   
+   Além das dependências base, instale:
+   ```bash
+   npm install react-native-url-polyfill @supabase/supabase-js @react-native-async-storage/async-storage
+   ```
 
 ## Como Rodar o Projeto
 
